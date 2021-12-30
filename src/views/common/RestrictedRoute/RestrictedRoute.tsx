@@ -1,12 +1,8 @@
-import React from "react";
-import { Navigate, Route, RouteProps } from "react-router-dom";
+import React from 'react';
+import { RouteProps, Route, Redirect } from 'react-router-dom';
 
 export const RestrictedRoute: React.FC<RouteProps> = (props) => {
-  const isAuth = false;
+  const isAuth = true;
 
-  if (isAuth) {
-    return <Navigate to="/" />;
-  }
-
-  return <Route {...props} />;
+  return isAuth ? <Redirect to='/' /> : <Route {...props} />;
 };

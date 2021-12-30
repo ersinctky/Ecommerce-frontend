@@ -1,31 +1,31 @@
-import { RouteProps, Route } from "react-router-dom";
-import React, { Fragment } from "react";
+import { RouteProps } from 'react-router-dom';
+import React from 'react';
 
-import { Home } from "../views/containers";
-import { PrivateRoute, RestrictedRoute } from "../views/common";
+import { Home } from '../views/containers';
+import { PrivateRoute, RestrictedRoute, PublicRoute } from '../views/common';
 
-type RouteType = "private" | "restricted" | "public";
+type RouteType = 'private' | 'restricted' | 'public';
 
-export const ROUTE_MAP: Record<RouteType, React.FC> = {
+export const ROUTE_MAP: Record<RouteType, React.FC<RouteProps>> = {
   private: PrivateRoute,
   restricted: RestrictedRoute,
-  public: Fragment,
+  public: PublicRoute,
 };
 
-interface RouteItem extends RouteProps {
+export interface RouteItem extends RouteProps {
   type: RouteType;
   path: string;
 }
 
 export const ROUTES: RouteItem[] = [
   {
-    path: "/login",
-    element: Home,
-    type: "private",
+    path: '/login',
+    component: Home,
+    type: 'private',
   },
   {
-    path: "/",
-    element: Home,
-    type: "public",
+    path: '/',
+    component: Home,
+    type: 'public',
   },
 ];
