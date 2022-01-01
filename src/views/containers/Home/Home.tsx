@@ -1,5 +1,10 @@
 import React from "react";
+import { SignIn } from "phosphor-react";
 
 export const Home: React.FC = () => {
-  return <div className="bg-slate-900">Home</div>;
+  return (
+    <header>
+      <div className="bg-white  ">Home</div>;
+    </header>
+  );
 };
