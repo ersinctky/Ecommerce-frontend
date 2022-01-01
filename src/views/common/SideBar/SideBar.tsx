@@ -1,24 +1,15 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import cx from "classnames";
+
+import { usePortalElement } from "../../../hooks";
 
 interface SideBarProps {
   open: boolean;
 }
 
 export const SideBar: React.FC<SideBarProps> = ({ open }) => {
-  const ref = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const portalEl = document.createElement("div");
-    portalEl.id = "side-bar";
-    ref.current = portalEl;
-    document.body.appendChild(ref.current);
-
-    return () => {
-      document.body.removeChild(ref.current!);
-    };
-  }, [ref]);
+  const ref = usePortalElement("div");
 
   if (ref.current === null) return null;
 
