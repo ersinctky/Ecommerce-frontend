@@ -10,6 +10,7 @@
   }
   @font-face {
     font-family: Poppins;
+    font-weight: 700;
     src: url("./fonts/Poppins/Poppins-Bold.ttf") format("ttf");
   }
 }
