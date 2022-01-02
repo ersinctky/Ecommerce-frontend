@@ -31,7 +31,10 @@ export const Navbar: React.FC = () => {
         >
           {isSideBarOpen ? <X size={24} /> : <List size={24} />}
         </button>
-        <SideBar open={isSideBarOpen} />
+        <SideBar
+          open={isSideBarOpen}
+          closeFn={() => toggleSideBarOpen(false)}
+        />
       </div>
     </nav>
   );

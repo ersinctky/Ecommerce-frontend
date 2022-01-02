@@ -1,22 +1,27 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import cx from "classnames";
 
-import { usePortalElement } from "../../../hooks";
+import { usePortalElement, useComponentVisible } from "../../../hooks";
 
 interface SideBarProps {
   open: boolean;
+  closeFn: () => void;
 }
 
-export const SideBar: React.FC<SideBarProps> = ({ open }) => {
-  const ref = usePortalElement("div");
+export const SideBar: React.FC<SideBarProps> = ({ open, closeFn }) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const portalRef = usePortalElement("div", "z-50");
 
-  if (ref.current === null) return null;
+  useComponentVisible(ref.current, open, closeFn);
+
+  if (!portalRef.current) return null;
 
   return ReactDOM.createPortal(
     <div
+      ref={ref}
       className={cx(
-        "fixed h-screen w-1/2 sm:w-1/4 lg:hidden bg-white bg-opacity-60 top-0 transition-transform shadow-lg backdrop-blur p-4",
+        "absolute h-screen w-1/2 sm:w-1/4 lg:hidden bg-white bg-opacity-60 top-0 transition-transform shadow-lg backdrop-blur p-4",
         {
           "-translate-x-full": !open,
         }
@@ -37,6 +42,6 @@ export const SideBar: React.FC<SideBarProps> = ({ open }) => {
         </li>
       </ul>
     </div>,
-    ref.current
+    portalRef.current
   );
 };
