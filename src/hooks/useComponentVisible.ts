@@ -7,8 +7,7 @@ export const useComponentVisible = (
 ) => {
   useEffect(() => {
     const listener = (e: MouseEvent) => {
-      console.log(el);
-      if (e.currentTarget !== el && open) {
+      if (e.target !== el && open) {
         closeFn();
       }
     };

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import cx from "classnames";
 
@@ -18,7 +18,8 @@ export const Modal: React.FC<ModalProps> = ({
 }) => {
   const ref = usePortalElement("div", "z-20");
 
-  useComponentVisible(ref.current?.children[0], open, closeFn);
+  useComponentVisible(ref.current?.children[0]?.children?.[0], open, closeFn);
+  console.log(ref.current?.children[0]?.children?.[0]);
 
   if (!ref.current) return null;
 
