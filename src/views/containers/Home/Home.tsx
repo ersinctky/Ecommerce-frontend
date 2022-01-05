@@ -1,5 +1,12 @@
 import React from "react";
 
+import { Layout } from "../../common/Layout";
+import { Header } from "../../common/Header";
+
 export const Home: React.FC = () => {
-  return <div>Home</div>;
+  return (
+    <Layout title="Home Page" keywords={""} description={""}>
+      <Header />
+    </Layout>
+  );
 };

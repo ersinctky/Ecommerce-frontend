@@ -5,7 +5,6 @@ interface LayoutProps {
   title: string;
   keywords: string;
   description: string;
-  children: Element;
 }
 
 export const Layout: React.FC<LayoutProps> = (
@@ -28,7 +27,7 @@ export const Layout: React.FC<LayoutProps> = (
         <meta name="description" content={description} />
       </head>
       <Header />
-      <main className="container mx-auto my-7">{children}</main>
+      {children}
     </div>
   );
 };
