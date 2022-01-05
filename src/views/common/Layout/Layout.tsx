@@ -27,7 +27,7 @@ export const Layout: React.FC<LayoutProps> = (
         <meta name="description" content={description} />
       </head>
       <Header />
-      {children}
+      <main className="container mx-auto my-7">{children}</main>
     </div>
   );
 };
