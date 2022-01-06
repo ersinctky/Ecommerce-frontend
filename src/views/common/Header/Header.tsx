@@ -1,5 +1,11 @@
 import React from "react";
-import { MagnifyingGlass, Heart, User, ShoppingCart } from "phosphor-react";
+import {
+  MagnifyingGlass,
+  Heart,
+  User,
+  ShoppingCart,
+  SignOut,
+} from "phosphor-react";
 import { useToggle } from "react-use";
 
 import { Navbar } from "../Navbar";
@@ -25,6 +31,13 @@ export const Header: React.FC = () => {
           <Heart size={24} />
           <User size={24} className="mx-8" onClick={() => toggleLoginOpen()} />
           <ShoppingCart size={24} />
+          <SignOut
+            size={24}
+            className="mx-12"
+            onClick={() => {
+              localStorage.removeItem("userInfo");
+            }}
+          />
         </div>
       </div>
       <Navbar />
