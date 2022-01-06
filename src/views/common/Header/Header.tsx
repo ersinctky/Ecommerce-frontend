@@ -28,12 +28,16 @@ export const Header: React.FC = () => {
           <MagnifyingGlass size={24} className=" absolute right-4" />
         </div>
         <div className="flex flex-row">
-          <Heart size={24} />
-          <User size={24} className="mx-8" onClick={() => toggleLoginOpen()} />
-          <ShoppingCart size={24} />
+          <Heart size={24} className="cursor-pointer" />
+          <User
+            size={24}
+            className="mx-8 cursor-pointer"
+            onClick={() => toggleLoginOpen()}
+          />
+          <ShoppingCart size={24} className="cursor-pointer" />
           <SignOut
             size={24}
-            className="mx-12"
+            className="mx-16 cursor-pointer"
             onClick={() => {
               localStorage.removeItem("userInfo");
             }}
