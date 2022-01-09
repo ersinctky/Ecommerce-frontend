@@ -4,7 +4,6 @@ import { BrowserRouter, Switch } from "react-router-dom";
 import { ROUTES } from "./constants";
 import { renderRoute } from "./utils";
 import { Header } from "./views/common";
-import { Layout } from "./views/common/Layout";
 
 export const App: React.FC = () => {
   return (

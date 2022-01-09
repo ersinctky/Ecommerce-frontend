@@ -1,10 +1,10 @@
-import { RouteProps } from 'react-router-dom';
-import React from 'react';
+import { RouteProps } from "react-router-dom";
+import React from "react";
 
-import { Home } from '../views/containers';
-import { PrivateRoute, RestrictedRoute, PublicRoute } from '../views/common';
+import { Home } from "../views/containers";
+import { PrivateRoute, RestrictedRoute, PublicRoute } from "../views/common";
 
-type RouteType = 'private' | 'restricted' | 'public';
+type RouteType = "private" | "restricted" | "public";
 
 export const ROUTE_MAP: Record<RouteType, React.FC<RouteProps>> = {
   private: PrivateRoute,
@@ -19,13 +19,13 @@ export interface RouteItem extends RouteProps {
 
 export const ROUTES: RouteItem[] = [
   {
-    path: '/login',
+    path: "/register",
     component: Home,
-    type: 'private',
+    type: "public",
   },
   {
-    path: '/',
+    path: "/",
     component: Home,
-    type: 'public',
+    type: "public",
   },
 ];
